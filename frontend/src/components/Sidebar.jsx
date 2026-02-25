@@ -3,6 +3,8 @@ import {
   Home, 
   BookOpen, 
   Grid3X3, 
+  GitBranch,
+  Database,
   Wand2, 
   Search,
   Menu,
@@ -15,6 +17,8 @@ export default function Sidebar({ activeTab, setActiveTab, isOpen, setIsOpen }) 
     { id: 'dashboard', label: 'لوحة التحكم', icon: Home },
     { id: 'roots', label: 'إدارة الجذور', icon: BookOpen },
     { id: 'patterns', label: 'إدارة الأنماط', icon: Grid3X3 },
+    { id: 'tree', label: 'عرض شجرة AVL', icon: GitBranch },
+    { id: 'hashtable', label: 'عرض جدول الهاش', icon: Database },
     { id: 'generator', label: 'مولد الكلمات', icon: Wand2 },
     { id: 'validator', label: 'محقق الكلمات', icon: Search },
   ];

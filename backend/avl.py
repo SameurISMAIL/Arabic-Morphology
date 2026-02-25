@@ -229,6 +229,22 @@ class AVLTree:
     def get_height(self) -> int:
         """Get height of the tree"""
         return self._get_height(self.root)
+
+    def _serialize_node(self, node: Optional[AVLNode]) -> Optional[dict]:
+        """Serialize AVL node recursively for API response"""
+        if not node:
+            return None
+
+        return {
+            "root": node.root,
+            "height": node.height,
+            "left": self._serialize_node(node.left),
+            "right": self._serialize_node(node.right),
+        }
+
+    def get_tree_structure(self) -> Optional[dict]:
+        """Get full AVL tree structure for visualization"""
+        return self._serialize_node(self.root)
     
     def delete(self, root: str) -> Tuple[bool, str]:
         """

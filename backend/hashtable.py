@@ -144,3 +144,40 @@ class HashTable:
             return True, f"Pattern updated from '{old_template}' to '{new_template}'"
         else:
             return False, f"Failed to update pattern"
+
+    def get_table_structure(self) -> dict:
+        """Return full hash table bucket structure for visualization"""
+        buckets = []
+        non_empty_buckets = 0
+        collisions = 0
+
+        for index, bucket in enumerate(self.table):
+            chain = []
+            current = bucket
+
+            while current:
+                chain.append({
+                    "template": current.template,
+                    "hash_value": current.hash_value,
+                })
+                current = current.next
+
+            if chain:
+                non_empty_buckets += 1
+                if len(chain) > 1:
+                    collisions += len(chain) - 1
+
+            buckets.append({
+                "index": index,
+                "count": len(chain),
+                "chain": chain,
+            })
+
+        return {
+            "size": self.size,
+            "count": self.count,
+            "load_factor": self.get_load_factor(),
+            "non_empty_buckets": non_empty_buckets,
+            "collisions": collisions,
+            "buckets": buckets,
+        }

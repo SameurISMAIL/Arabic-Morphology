@@ -24,6 +24,7 @@ export const uploadRootsFile = (file) => {
   });
 };
 export const getAllRoots = () => apiClient.get('/roots/all');
+export const getRootsTree = () => apiClient.get('/roots/tree');
 export const searchRoot = (root) => apiClient.get(`/roots/search/${root}`);
 export const getRootWords = (root) => apiClient.get(`/roots/${root}/words`);
 export const deleteRoot = (root) => apiClient.delete(`/roots/${root}`);
@@ -34,6 +35,7 @@ export const updateRoot = (old_root, new_root) =>
 export const addPattern = (template) =>
   apiClient.post('/patterns/add', { template });
 export const getAllPatterns = () => apiClient.get('/patterns/all');
+export const getPatternsTable = () => apiClient.get('/patterns/table');
 export const getPattern = (template) =>
   apiClient.get(`/patterns/${template}`);
 export const deletePattern = (template) =>

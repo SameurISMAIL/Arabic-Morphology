@@ -4,6 +4,8 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import RootsManager from './components/RootsManager';
 import PatternsManager from './components/PatternsManager';
+import AVLTreeVisualizer from './components/AVLTreeVisualizer';
+import HashTableVisualizer from './components/HashTableVisualizer';
 import MorphologicalGenerator from './components/MorphologicalGenerator';
 import MorphologicalValidator from './components/MorphologicalValidator';
 
@@ -19,6 +21,10 @@ export default function App() {
         return <RootsManager />;
       case 'patterns':
         return <PatternsManager />;
+      case 'tree':
+        return <AVLTreeVisualizer />;
+      case 'hashtable':
+        return <HashTableVisualizer />;
       case 'generator':
         return <MorphologicalGenerator />;
       case 'validator':

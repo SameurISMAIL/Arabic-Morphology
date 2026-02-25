@@ -265,6 +265,17 @@ async def get_all_roots():
     }
 
 
+@app.get("/api/roots/tree")
+async def get_roots_tree():
+    """Get full AVL tree structure for graphical visualization"""
+    return {
+        "success": True,
+        "tree": avl_tree.get_tree_structure(),
+        "height": avl_tree.get_height(),
+        "count": avl_tree.get_size()
+    }
+
+
 @app.get("/api/roots/search/{root}")
 async def search_root(root: str):
     """Search for a specific root"""
@@ -367,6 +378,15 @@ async def get_all_patterns():
     return {
         "patterns": patterns,
         "count": len(patterns)
+    }
+
+
+@app.get("/api/patterns/table")
+async def get_patterns_table():
+    """Get full hash table bucket structure for graphical visualization"""
+    return {
+        "success": True,
+        "table": hash_table.get_table_structure()
     }
 
 
